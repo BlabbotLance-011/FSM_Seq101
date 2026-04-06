@@ -1,25 +1,27 @@
-//testbench for sequel 101
+//testbench for sequence 101 w/clk_div
 module testbench;
 //tb signals
 	reg			in;
 	reg			rst_n;
-	reg			clk;
+	reg			clk_150;
 	wire			out;
 	wire	[1:0] state;
+	wire			clk_led;
 
 
 	//instantiate seq_101
 	seq_101 dut(
-	.out(out),
-	.state(state),
-	.clk(clk), 
-	.rst_n(rst_n), 
-	.in(in));
+		.out(out), 
+		.clk_led(clk_led), 
+		.state(state), 
+		.clk_150(clk_150), 
+		.rst_n(rst_n), 
+		.in(in));
 
 	//apply stimuli
-	initial clk = 1'b0;
+	initial clk_150 = 1'b0;
 
-	always #1 clk = ~clk;
+	always #1 clk_150 = ~clk_150;
 
 	initial begin
 		in = 0; rst_n = 0; #4; //starts at S0
