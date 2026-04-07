@@ -14,31 +14,23 @@ Date:
 5 Apr 2026
 
 ------------------------------------*/
-module seq_101(out, clk_led, state, clk_150, rst_n, in);
+module seq_101(out,  state, clk, rst_n, in);
 	//ports
-	input 					in;
-	input 					rst_n;
-	input 					clk_150;
+	input 				in;
+	input					clk;
+	input 				rst_n;
 	output reg			out;
-	output reg	[1:0] state;
-	output 	 			  clk_led;
+	output reg [1:0]  state;
+
 	
-	//state
+	// States
 	parameter [1:0] S0 = 2'b00;
 	parameter [1:0] S1 = 2'b01;
 	parameter [1:0] S2 = 2'b10;
 	parameter [1:0] S3 = 2'b11;
 	reg [1:0] pres; //present state
 	reg [1:0] next; //next state
-	wire clk;
 	
-	//1Hz Clock
-		clk_div #(.TICKS_500MS(75_000_000)) div(
-			.clk_out(clk),
-			.clk_led(clk_led),
-			.clk_in(clk_150)
-		); 
-	//this convert the 50MHz clock to 1Hz Clock
  
 	// Input Block
 	always @(in,pres) begin
