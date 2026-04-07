@@ -1,5 +1,5 @@
 /*====================================
-								SEQUENCE 101
+				SEQUENCE 101
 ======================================
 Description:
 	This Moore FSM detects the

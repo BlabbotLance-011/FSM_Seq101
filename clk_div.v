@@ -20,8 +20,8 @@ module  clk_div(clk_out,clk_led,clk_in);
  output reg clk_led = 1'b0;
  
  // division factor
- parameter integer FREQ_IN = 50_000_000; 	// 50 MHz
- parameter integer PERIOD_OUT = 1;		// 1 second
+ parameter integer  FREQ_IN = 50_000_000; 					// 50 MHz
+ parameter integer  PERIOD_OUT = 1;							// 1 seconds
  localparam integer TICKS = (FREQ_IN * PERIOD_OUT)/2; // No. of ticks every period
 
 // clock generator
