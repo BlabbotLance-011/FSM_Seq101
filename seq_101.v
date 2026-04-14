@@ -24,10 +24,10 @@ module seq_101(out,  state, clk, rst_n, in);
 
 	
 	// States
-	parameter [1:0] S0 = 2'b00;
-	parameter [1:0] S1 = 2'b01;
-	parameter [1:0] S2 = 2'b10;
-	parameter [1:0] S3 = 2'b11;
+	localparam [1:0] S0 = 2'b00;
+	localparam [1:0] S1 = 2'b01;
+	localparam [1:0] S2 = 2'b10;
+	localparam [1:0] S3 = 2'b11;
 	reg [1:0] pres; //present state
 	reg [1:0] next; //next state
 	
@@ -38,7 +38,7 @@ module seq_101(out,  state, clk, rst_n, in);
 			S0 : next = in ? S1 : S0;
 			S1 : next = in ? S1 : S2;
 			S2 : next = in ? S3 : S0;
-			S3 : next = in ? S1 : S0;
+			S3 : next = in ? S1 : S2;
 			default: next = S0;
 		endcase //end of case
 	end //end of always @(in,pre)

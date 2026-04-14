@@ -1,0 +1,40 @@
+//testbench for sequence 101 w/clk_div
+module testbench;
+//tb signals
+	reg			in;
+	reg			rst_n;
+	reg			clk_150;
+	wire			out;
+	wire	[1:0] state;
+
+
+
+	//instantiate seq_101
+	seq_101 dut(
+		.out(out), 
+		.state(state), 
+		.clk_150(clk_150), 
+		.rst_n(rst_n), 
+		.in(in));
+
+	//apply stimuli
+	initial clk_150 = 1'b0;
+
+	always #1 clk_150 = ~clk_150;
+
+	initial begin
+	rst_n = 0; 
+	repeat(3)@(negedge clk_150);
+	rst_n = 1;
+	@(negedge clk_150); in = 1;
+	@(negedge clk_150); in = 0;
+	@(negedge clk_150); in = 1;
+	@(negedge clk_150); in = 0;
+	@(negedge clk_150); in = 1;
+	@(negedge clk_150); in = 1;
+	@(negedge clk_150); in = 0;
+	@(negedge clk_150); in = 0;
+	@(negedge clk_150); in = 0;
+	end //end of initial
+
+endmodule
