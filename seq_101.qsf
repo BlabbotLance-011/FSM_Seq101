@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE115F29C7
-set_global_assignment -name TOP_LEVEL_ENTITY top_seq_101
+set_global_assignment -name TOP_LEVEL_ENTITY seq_101
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 25.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:32:40  MARCH 31, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION "25.1std.0 Lite Edition"
@@ -61,9 +61,6 @@ set_global_assignment -name VERILOG_FILE seq_101.v
 set_global_assignment -name VERILOG_FILE clk_div.v
 set_global_assignment -name VERILOG_FILE testbench.v
 set_global_assignment -name VERILOG_FILE top_seq_101.v
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_Y2 -to clk_in
 set_location_assignment PIN_AB28 -to in
 set_location_assignment PIN_G21 -to clk_led
@@ -71,4 +68,7 @@ set_location_assignment PIN_E19 -to state[1]
 set_location_assignment PIN_F19 -to state[0]
 set_location_assignment PIN_R24 -to rst_n
 set_location_assignment PIN_G19 -to out
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
